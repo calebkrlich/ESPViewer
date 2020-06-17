@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JFrame;
 
+import esp.application.panels.DeviceSelectionPanel;
 import esp.application.panels.EspStatusPanel;
 import esp.application.statusobject.ESPDeviceVO;
 import esp.application.websocket.WebsocketConnection;
@@ -20,11 +21,12 @@ public class Application extends Observable
 	
 	JFrame mainApplicationFrame = new JFrame();
 	
+	
 	EspStatusPanel devicePanel;
 	ESPDeviceVO deviceVO = new ESPDeviceVO();
+	DeviceSelectionPanel selectionPanel;
 	
 	GridBagConstraints gbc = new GridBagConstraints();
-	
 	WebsocketConnection wsc = new WebsocketConnection(9090);
 	
 	public Application()
@@ -32,7 +34,7 @@ public class Application extends Observable
 		
 		Thread websocketThread = new Thread(wsc);
 		
-		websocketThread.run();
+		//websocketThread.run();
 		setupFrameBasics();
 	}
 	
@@ -46,13 +48,19 @@ public class Application extends Observable
 		mainApplicationFrame.setSize(1000,600);
 		mainApplicationFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		mainApplicationFrame.setVisible(true);
-		gbc.insets = new Insets(0, 0, 0, 5);
+		gbc.insets = new Insets(0, 0, 0, 0);
 		
-		gbc.gridx = 0;
+		gbc.gridx = 1;
 		gbc.gridy = 0;
 		devicePanel = new EspStatusPanel(deviceVO);
 		
 		mainApplicationFrame.getContentPane().add(devicePanel, gbc);
+		
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		selectionPanel = new DeviceSelectionPanel();
+		mainApplicationFrame.getContentPane().add(selectionPanel, gbc);
+		
 		mainApplicationFrame.pack();
 		
 	}
