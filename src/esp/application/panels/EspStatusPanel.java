@@ -13,9 +13,11 @@ import javax.swing.border.LineBorder;
 
 import esp.application.statusobject.ESPDeviceIOStatusVO;
 import esp.application.statusobject.ESPDeviceVO;
+import esp.application.utils.PanelConstants;
 
 public class EspStatusPanel extends JPanel
 {
+	
 	ESPDeviceVO device;
 	
 	ESPDeviceIOStatusVO status;
@@ -57,13 +59,13 @@ public class EspStatusPanel extends JPanel
 	
 	private void setupPanels(ESPDeviceVO device)
 	{
-		this.setMinimumSize(new Dimension(500,600));
-		this.setPreferredSize(new Dimension(500,600));
+		this.setMinimumSize(new Dimension(PanelConstants.BASIC_PANEL_SIZE_X,PanelConstants.BASIC_PANEL_SIZE_Y));
+		this.setPreferredSize(new Dimension(PanelConstants.BASIC_PANEL_SIZE_X,PanelConstants.BASIC_PANEL_SIZE_Y));
 		this.setLayout(new GridBagLayout());
 		
 		deviceOverviewPanel = new ESPDeviceStatusPanel(device);
-		deviceOverviewPanel.setMinimumSize(new Dimension(300,150));
-		deviceOverviewPanel.setPreferredSize(new Dimension(300,150));
+		deviceOverviewPanel.setMinimumSize(new Dimension(PanelConstants.BASIC_PANEL_SIZE_X,PanelConstants.BASIC_PANEL_SIZE_Y/2));
+		deviceOverviewPanel.setPreferredSize(new Dimension(PanelConstants.BASIC_PANEL_SIZE_X,PanelConstants.BASIC_PANEL_SIZE_Y/2));
 		
 		deviceOverviewPanel.setBorder(new LineBorder(Color.BLACK, 1));
 		
@@ -72,8 +74,8 @@ public class EspStatusPanel extends JPanel
 		this.add(deviceOverviewPanel, constraints);
 		
 		deviceIOPanel = new ESPIOPanel();
-		deviceIOPanel.setMinimumSize(new Dimension(300,200));
-		deviceIOPanel.setPreferredSize(new Dimension(300,200));
+		deviceIOPanel.setMinimumSize(new Dimension(PanelConstants.BASIC_PANEL_SIZE_X,PanelConstants.BASIC_PANEL_SIZE_Y/2));
+		deviceIOPanel.setPreferredSize(new Dimension(PanelConstants.BASIC_PANEL_SIZE_X, PanelConstants.BASIC_PANEL_SIZE_Y/2));
 		
 		deviceIOPanel.setBorder(new LineBorder(Color.black, 1));
 		

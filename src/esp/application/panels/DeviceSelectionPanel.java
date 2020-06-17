@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import esp.application.utils.PanelConstants;
+
 public class DeviceSelectionPanel extends JPanel implements ActionListener
 {
 	JLabel ipAddrLabel;
@@ -29,8 +31,8 @@ public class DeviceSelectionPanel extends JPanel implements ActionListener
 	
 	private void setupPanel()
 	{
-		this.setMinimumSize(new Dimension(300,300));
-		this.setPreferredSize(new Dimension(300,300));
+		this.setMinimumSize(new Dimension(PanelConstants.BASIC_PANEL_SIZE_X, PanelConstants.BASIC_PANEL_SIZE_Y));
+		this.setPreferredSize(new Dimension(PanelConstants.BASIC_PANEL_SIZE_X, PanelConstants.BASIC_PANEL_SIZE_Y));
 		this.setLayout(new GridBagLayout());
 		
 		gbc = new GridBagConstraints();
@@ -42,7 +44,7 @@ public class DeviceSelectionPanel extends JPanel implements ActionListener
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		this.add(ipAddrLabel, gbc);
 		
-		ipAddrField = new JTextField("TEST TEXT FIELD");
+		ipAddrField = new JTextField("");
 		ipAddrField.setMinimumSize(new Dimension(125,20));
 		ipAddrField.addActionListener(this);
 		gbc.gridx = 1;

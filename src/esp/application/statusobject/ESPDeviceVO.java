@@ -17,6 +17,8 @@ public class ESPDeviceVO
 	String deviceVersion;
 	
 	String deviceFirmwareVersion;
+	
+	ESPDeviceIOStatusVO ioStatusVO;
 
 	public String getDeviceName() {
 		return deviceName;
@@ -56,6 +58,14 @@ public class ESPDeviceVO
 
 	public void setDeviceFirmwareVersion(String deviceFirmwareVersion) {
 		this.deviceFirmwareVersion = deviceFirmwareVersion;
+	}
+
+	public ESPDeviceIOStatusVO getIoStatusVO() {
+		return ioStatusVO;
+	}
+
+	public void setIoStatusVO(ESPDeviceIOStatusVO ioStatusVO) {
+		this.ioStatusVO = ioStatusVO;
 	}
 
 	
