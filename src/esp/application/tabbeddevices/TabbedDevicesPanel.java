@@ -34,17 +34,15 @@ public class TabbedDevicesPanel extends JPanel
 		tabbedPane.setBorder(new LineBorder(Color.black, 1));
 		tabbedPane.setMinimumSize(new Dimension(PanelConstants.TABBED_DEVICE_AREA_X, PanelConstants.TABBED_DEVICE_AREA_Y));
 		tabbedPane.setPreferredSize(new Dimension(PanelConstants.TABBED_DEVICE_AREA_X, PanelConstants.TABBED_DEVICE_AREA_Y));
-	    
+		
+		
 		ESPDeviceVO device = new ESPDeviceVO();
-		
 		device.setDeviceName("Testing");
-		
 	    addNewDevice(device);
 
 	    gbc.gridx = 0;
 		gbc.gridy = 0;
 		this.add(tabbedPane, gbc);
-		
 	}
     
 	

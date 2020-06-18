@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import esp.application.utils.PanelConstants;
@@ -19,8 +21,11 @@ public class DeviceSelectionPanel extends JPanel implements ActionListener
 {
 	JLabel ipAddrLabel;
 	JTextField ipAddrField;
+	
+	JButton deviceDisconnectButton;
 	JButton deviceConnectButton;
 	
+	DeviceConnectionPanel connectionPanel;
 	
 	GridBagConstraints gbc;
 	
@@ -36,6 +41,7 @@ public class DeviceSelectionPanel extends JPanel implements ActionListener
 		this.setLayout(new GridBagLayout());
 		
 		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 1, 1, 1);
 		
 		ipAddrLabel = new JLabel("Device IP Addr: ");
 		ipAddrLabel.setMinimumSize(new Dimension(125,20));
@@ -49,14 +55,25 @@ public class DeviceSelectionPanel extends JPanel implements ActionListener
 		ipAddrField.addActionListener(this);
 		gbc.gridx = 1;
 		gbc.gridy = 0;
-		gbc.gridwidth = GridBagConstraints.REMAINDER;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
 		this.add(ipAddrField, gbc);
 		
 		deviceConnectButton = new JButton("Connect");
-		gbc.gridx = 1;
+		gbc.gridx = 0;
 		gbc.gridy = 1;
 		this.add(deviceConnectButton, gbc);
+		
+		deviceDisconnectButton = new JButton("Disconnect");
+		gbc.gridx = 1;
+		gbc.gridy = 1;
+		this.add(deviceDisconnectButton, gbc);
+		
+		connectionPanel = new DeviceConnectionPanel();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.gridwidth = 2;
+		//gbc.fill = SwingConstants.HORIZONTAL;
+		this.add(connectionPanel, gbc);
+		
 		
 		this.setBorder(new LineBorder(Color.black, 1));
 		this.setVisible(true);
